@@ -160,10 +160,12 @@ Cambia `--public` por `--private` si corresponde.
 
 ## Fundamento numérico
 
-La generación de pesos sigue B. Fornberg, *Generation of Finite Difference
-Formulas on Arbitrarily Spaced Grids*, Mathematics of Computation 51 (1988),
-699–706, DOI `10.1090/S0025-5718-1988-0935077-0`. El modo `hero` sigue la
+La generación de pesos sigue B. Fornberg, [*Generation of Finite Difference
+Formulas on Arbitrarily Spaced Grids*](https://doi.org/10.1090/S0025-5718-1988-0935077-0),
+Mathematics of Computation 51 (1988), 699–706. El modo `hero` sigue la
 recomendación práctica de aumentar la precisión para diferencias de orden alto,
-documentada también por `mpmath`. Las diferencias finitas siempre equilibran
-error de truncamiento (h demasiado grande) y redondeo (h demasiado pequeño),
-razón por la cual los niveles avanzados refinan el paso y muestran incertidumbre.
+documentada también en el [manual oficial de
+mpmath](https://mpmath.org/doc/current/mpmath.pdf). Las diferencias finitas
+siempre equilibran error de truncamiento (h demasiado grande) y redondeo (h
+demasiado pequeño), razón por la cual los niveles avanzados refinan el paso y
+muestran incertidumbre.
