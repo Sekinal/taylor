@@ -6,6 +6,10 @@ parciales se obtienen **numéricamente**, los coeficientes del polinomio salen
 explícitamente del **triángulo de Pascal**, y una gráfica 3D muestra la función,
 la aproximación y las curvas donde ambas superficies se intersectan.
 
+La explicación completa, desde cero y con analogías, ejemplos y diagramas, está
+disponible en [la guía ELI5 en PDF](docs/guia_eli5.pdf). Su fuente reproducible
+es [docs/guia_eli5.typ](docs/guia_eli5.typ).
+
 ## Inicio rápido con uv
 
 ```bash
@@ -146,6 +150,7 @@ gráfica puede hacer crecer el error aunque las derivadas estén bien calculadas
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+typst compile docs/guia_eli5.typ docs/guia_eli5.pdf
 ```
 
 El workflow [`.github/workflows/ci.yml`](.github/workflows/ci.yml) ejecuta esas
