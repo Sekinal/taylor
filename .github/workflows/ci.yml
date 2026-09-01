@@ -24,6 +24,8 @@ jobs:
         run: uv run ruff check .
       - name: Formato
         run: uv run ruff format --check .
+      - name: Generar figuras matemáticas
+        run: uv run python scripts/generate_guide_figures.py
       - name: Pruebas
         run: uv run pytest
       - name: Compilar guía Typst

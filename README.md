@@ -150,6 +150,7 @@ gráfica puede hacer crecer el error aunque las derivadas estén bien calculadas
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run python scripts/generate_guide_figures.py
 typst compile docs/guia_eli5.typ docs/guia_eli5.pdf
 ```
 

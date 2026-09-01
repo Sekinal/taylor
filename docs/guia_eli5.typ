@@ -193,6 +193,14 @@ Piensa en un mapa:
 - $y$ dice cuánto caminar al norte o al sur.
 - $f(x,y)$ dice la altura del suelo en ese lugar.
 
+#figure(
+  image("assets/01_funcion_montana.png", width: 88%),
+  caption: [
+    *Función como montaña.* Cada pareja $(x,y)$ elige un lugar y la superficie
+    da su altura. El punto rojo es el centro donde colocamos nuestra lupa.
+  ],
+)
+
 #align(center)[
   #grid(
     columns: (38mm, 12mm, 38mm, 12mm, 38mm),
@@ -258,6 +266,15 @@ Este es el *centro de expansión*. Imagina que colocamos una lupa allí.
 ]
 
 Cuanto más cerca estamos del centro, mejor suele funcionar la copia de Taylor.
+
+#figure(
+  image("assets/02_lupa_local.png", width: 100%),
+  caption: [
+    *La misma aproximación vista con dos escalas.* Cerca de cero las curvas se
+    confunden; lejos del centro empiezan a separarse. No cambió el polinomio:
+    cambió cuánto nos alejamos.
+  ],
+)
 
 == Un cambio de coordenadas muy útil
 
@@ -340,6 +357,15 @@ $
   ("altura nueva" - "altura anterior")/("distancia caminada")
 $
 
+#figure(
+  image("assets/03_diferencias_finitas.png", width: 92%),
+  caption: [
+    *Medir una pendiente con puntos cercanos.* La recta naranja mira hacia
+    delante. La azul usa un punto a cada lado; para esta parábola coincide con
+    la tangente verde exacta.
+  ],
+)
+
 #align(center)[
   #grid(
     columns: (1fr, auto, 1fr),
@@ -361,6 +387,15 @@ Parece que un paso diminuto siempre debería ser mejor. No es así:
 - Si $h$ es grande, vemos demasiada montaña y perdemos detalle local.
 - Si $h$ es minúsculo, restamos números casi iguales y la computadora pierde
   dígitos útiles.
+
+#figure(
+  image("assets/04_equilibrio_paso.png", width: 92%),
+  caption: [
+    *El error tiene dos enemigos.* Al reducir $h$ baja el truncamiento naranja,
+    pero crece el redondeo rojo. El punto verde marca la zona de equilibrio.
+    Los valores son ilustrativos; la forma de “U” es la lección.
+  ],
+)
 
 #align(center)[
   #table(
@@ -409,6 +444,14 @@ de los dos que tiene encima:
     1 5 10 10 5 1
   ]
 ]
+
+#figure(
+  image("assets/05_pascal_visual.png", width: 82%),
+  caption: [
+    *Pascal construido, no memorizado.* Las líneas muestran los dos padres de
+    cada número interior. Por ejemplo, los dos 3 de arriba producen el 6.
+  ],
+)
 
 == ¿Qué tiene que ver con x e y?
 
@@ -557,6 +600,15 @@ polinomio de grado 2 y elegimos $N=2$.
   derivadas se calculen con suficiente precisión.
 ]
 
+#figure(
+  image("assets/07_ordenes_taylor.png", width: 96%),
+  caption: [
+    *Agregar órdenes añade detalle alrededor del centro.* La franja verde es la
+    zona local. De $N=0$ a $N=6$, la curva naranja imita cada vez más a la azul
+    antes de separarse lejos de cero.
+  ],
+)
+
 = Los tres niveles del programa
 
 Los niveles no son tres nombres para lo mismo. Cada uno cambia la estrategia
@@ -620,6 +672,15 @@ $N$ pequeño.
   un punto fuera del dominio o una expansión demasiado lejos del centro.
 ]
 
+#figure(
+  image("assets/08_niveles_precision.png", width: 88%),
+  caption: [
+    *Una prueba con respuesta conocida.* Para $e^(x+y)$ todas las derivadas en
+    el origen valen 1. En orden 8, la precisión arbitraria de `hero` conserva
+    muchos más dígitos. El eje vertical es logarítmico.
+  ],
+)
+
 = Fornberg sin misterio
 
 Queremos números $w_k$ que cumplan:
@@ -663,6 +724,15 @@ $
 Es como poner una regla horizontal encima de una regla vertical. El programa
 guarda las alturas de toda la cuadrícula y las reutiliza para las distintas
 derivadas.
+
+#figure(
+  image("assets/06_plantilla_mixta.png", width: 70%),
+  caption: [
+    *Una plantilla para $f_(x y)$.* Rojo significa sumar, azul restar y blanco
+    peso cero. Las cuatro esquinas comparan cómo cambia la función en ambas
+    direcciones a la vez.
+  ],
+)
 
 = Richardson: comparar tres tamaños de paso
 
@@ -780,6 +850,15 @@ Entonces buscamos lugares donde $d(x,y)=0$.
   La línea roja no se dibuja pegada al suelo como una sombra. Se eleva hasta la
   altura común de las dos superficies; por eso representa una intersección 3D.
 ]
+
+#figure(
+  image("assets/09_intersecciones.png", width: 100%),
+  caption: [
+    *Salida real del programa.* Izquierda: original. Centro: Taylor. Derecha:
+    ambas superficies transparentes; la línea roja vive a la altura común y
+    marca dónde se intersectan.
+  ],
+)
 
 == Las métricas
 

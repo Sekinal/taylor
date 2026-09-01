@@ -78,11 +78,16 @@ def test_typst_guide_and_pdf_are_complete() -> None:
     """El PDF versionado debe corresponder a una guía extensa con ejercicios."""
     source = Path("docs/guia_eli5.typ").read_text(encoding="utf-8")
     pdf = Path("docs/guia_eli5.pdf").read_bytes()
+    assets = sorted(Path("docs/assets").glob("*.png"))
 
     assert source.count("=== Ejercicio ") >= 20
     assert source.count("=== Solución ") >= 20
     assert "Nivel 0 — Intuición" in source
     assert "Nivel 4 — Diagnóstico hero" in source
     assert "La fórmula de Taylor, pieza por pieza" in source
+    assert source.count("#figure(") >= 9
+    assert len(assets) == 9
+    assert all(asset.read_bytes().startswith(b"\x89PNG\r\n\x1a\n") for asset in assets)
+    assert all(asset.stat().st_size > 40_000 for asset in assets)
     assert pdf.startswith(b"%PDF-")
     assert len(pdf) > 100_000
